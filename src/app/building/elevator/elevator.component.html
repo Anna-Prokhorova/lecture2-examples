@@ -1,0 +1,24 @@
+<h1>Elevator</h1>
+<div class="elevator">
+  <div class="container">
+    <div *ngIf="user">
+      <img [src]="user.img" />
+      <h2>{{ user.name }}</h2>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn btn-success" [routerLink]="['green']">
+        Green Room
+      </button>
+      <button type="button" class="btn btn-primary" [routerLink]="['blue']">
+        Blue Room
+      </button>
+      <button type="button" class="btn btn-secondary" [routerLink]="['']">
+        Hall
+      </button>
+    </div>
+  </div>
+  <div class="room">
+    <router-outlet></router-outlet>
+  </div>
+</div>
