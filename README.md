@@ -1,27 +1,25 @@
 # Lecture2Examples
+Драфтовое приложение написано на Angular16. Служит иллюстрацией к Лекции2 (Реактивность часть 1)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.6.
+## Запуск
+После клонирования выполнить `npm i` для установки зависимостей.
 
-## Development server
+Команда `npm run start` запускает фронт-часть приложения и моковый бэкенд (lecture2-mock-api) через `concurrently` (уже прописано в скриптах)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Структура приложения
+![Structure](https://github.com/Anna-Prokhorova/lecture2-examples/assets/59168625/1d5afc04-9a30-4a8d-a4ac-7f6185e0e8b6)
 
-## Code scaffolding
+## Моковый бэкенд
+Написан на node.js с использованием express. Запускается локально на порту 3000 и при помощи прокси конфига проксируется на http://localhost:4200/api_frontend.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Методы:
+- GET (/api_frontend/blue)
+  
+response: `{
+  "data": "Welcome to my BLUE room"
+} `
+- GET (/api_frontend/green)
+     
+response: `{
+  "data": "Welcome to my GREEN room"
+} `
