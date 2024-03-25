@@ -1,5 +1,5 @@
 import { CanActivateFn, Router } from '@angular/router';
-import { BuildingService } from '../building/services/building-service.service';
+import { BuildingService } from '../services/building-service.service';
 import { inject } from '@angular/core';
 
 export const elevatorGuard: CanActivateFn = (route, state): boolean => {
@@ -12,6 +12,7 @@ export const elevatorGuard: CanActivateFn = (route, state): boolean => {
   ) {
     return true;
   }
+
   alert('Взрослых дома нет!');
   router.navigate(['elevator']);
   return false;

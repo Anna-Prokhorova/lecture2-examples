@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './no-room.component.html',
   styleUrls: ['./no-room.component.less'],
 })
-export class NoRoomComponent {}
+export class NoRoomComponent {
+  //просто компонент с дверями лифта
+}

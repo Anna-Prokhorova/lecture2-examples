@@ -1,7 +1,7 @@
 export interface User {
   name: string;
   img: string;
-  color: Colors;
+  color: Color;
 }
 
-type Colors = 'blue' | 'green';
+type Color = 'blue' | 'green';

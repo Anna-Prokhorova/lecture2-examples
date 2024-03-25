@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
+    "dev-client": "ng serve --proxy-config proxy.conf.json --configuration development",
+    "dev-server": "nodemon lecture2-mock-api/index.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -34,6 +36,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~5.0.2"
+    "typescript": "~5.0.2",
+    "nodemon": "^2.0.20"
   }
 }

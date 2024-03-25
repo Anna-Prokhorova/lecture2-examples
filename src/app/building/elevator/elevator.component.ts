@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { BuildingService } from '../services/building-service.service';
+import { BuildingService } from '../../services/building-service.service';
 import { User } from '../models/user';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -16,6 +16,7 @@ export class ElevatorComponent implements OnInit {
   public user: User | null = null;
 
   ngOnInit(): void {
+    //забираем из сервиса текущего юзера
     this.user = this.buildingService.user;
   }
 }

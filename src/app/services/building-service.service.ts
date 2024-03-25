@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of, tap } from 'rxjs';
-import { User } from '../models/user';
+import { User } from '../building/models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -9,20 +9,24 @@ import { User } from '../models/user';
 export class BuildingService {
   private httpClient: HttpClient = inject(HttpClient);
 
+  //геттер текущего пользователя
   public get user(): User | null {
     const token = localStorage.getItem('user_token');
     if (token) {
-      const user: any = this.parseJwt(token);
+      const user: User = this.parseJwt(token);
       return user;
     }
     return null;
   }
 
+  //геттер текущего токена
   public get token(): string | null {
     const token = localStorage.getItem('user_token');
     return token;
   }
 
+  //в методе делаем запрос и возвращаем поток данных ответа
+  //внутри всякие RxJs операторы для преобразования потока
   public login(key: string): Observable<User | null> {
     return this.httpClient.get<{ token: string }>(`assets/${key}.json`).pipe(
       tap((res: { token: string }) =>
@@ -37,6 +41,7 @@ export class BuildingService {
     );
   }
 
+  //парсер токена для получения полезной нагрузки
   private parseJwt(token: string): User {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');

@@ -1,4 +1,6 @@
-export const environment = {
-  production: false,
-  backendOrigin: 'http://localhost:3000',
+import { Environment } from './environment.model';
+
+export const environment: Environment = {
+  production: true,
+  backendOrigin: '/api_frontend',
 };

@@ -8,21 +8,24 @@ import { Observable, Observer } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
-    console.log('Init');
+    console.log('Init AppComponent');
 
-    const observable = new Observable((observer) => {
-      observer.error(new Error('MyError'));
+    //создаем свой поток данных
+    const observable: Observable<number> = new Observable((observer) => {
+      // observer.error(new Error('MyError'));
       observer.next(1);
       observer.next(2);
       observer.complete();
     });
 
-    const observer: Observer<unknown> = {
-      next: (value: unknown) => console.log(value),
+    //создаем обработчик потока, который показывает как реагируем на события в потоке
+    const observer: Observer<number> = {
+      next: (value: number) => console.log(value),
       error: (error: Error) => console.error(error),
       complete: () => console.log('completed'),
     };
 
+    //подписываемся на поток и входным параметром отдаем наблюдателя
     observable.subscribe(observer);
   }
 }

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { NoRoomComponent } from './rooms/no-room/no-room.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 @NgModule({
